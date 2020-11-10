@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 1em;
+  background-color: #333;
+  --test: blue;
+}
+
+.card {
+  width: 100%;
+  height: calc(100vh - 2em);
+  background-image: url('https://images.unsplash.com/photo-1437422061949-f6efbde0a471?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=3743c450231eda3df43a243f1cca2fc0');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  position: relative;
+
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-size 15s;
+}
+
+.card.loaded {
+  background-size: 150%;
+}
+
+.gradient-layer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  opacity: .7;
+  background: #7F00FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, var(--test, green), #7F00FF); 
+}
+
+.info {
+  display: flex;
+  max-width: 680px;
+  padding: 0 2em;
+  justify-content: center;
+  font-family: Ubuntu;
+  color: white;
+  z-index: 1;
+}
+
+.bio > i {
+  display: inline-block;
+  font-style: normal;
+  transform: rotateY(90deg);
+  transition: transform 1s;
+}
+
+.card.loaded .bio > i {
+  transform: rotateY(0deg);
+}
+
+.bio h2 {
+  transform: translateY(-30px);
+  transition: transform 1s;
+}
+.card.loaded .bio h2 {
+  transform: translateY(0);
+}
+
+.bio .line {
+  display: block;
+  height: 2px;
+  width: 0px;
+  background-color: white;
+  margin-top: 1em;
+  transition: width 2s;
+}
+
+.bio p {
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card.loaded .bio p {
+  opacity: 1;
+}
+
+.card.loaded .bio .line {
+  width: 100px;
+}
+
+.bio button {
+  border: none;
+  background-color: #fff;
+  padding: 1em 2em;
+  font-size: 14px;
+  border-radius: 60px;
+  font-family: Ubuntu;
+  color: purple;
+  outline: none;
+}
+
+.links {
+  margin-top: 1em;  
+}
+
+.links a {
+  text-decoration: none;
+  font-size: 1.8em;
+  color: white;
+  padding-left: .2em;
+}
+
+.profile-pic > div:first-child {
+  width: 200px;
+  height: 200px;
+  background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=0d3503389e9153a2572bdd3c0c39cf8b');
+  background-size: cover;
+  border-radius: 100%;
+  box-shadow: 0 2px 15px rgba(0,0,0,.5);
+  transform: scale(1.1);
+  opacity: 0;
+  transition: opacity .5s, transform .5s;
+}
+
+.card.loaded .profile-pic > div:first-child {
+  transform: scale(1);
+  opacity: 1;
+}
+
+@media screen and ( max-width: 700px ) {
+  .info {
+    flex-direction: column;
+  }
+  
+  .bio {
+     order: 1;
+     text-align: center;
+  }
+  
+  .bio .line {
+    position: relative;
+    left: calc(50% - 50px);
+  }
+  
+  .profile-pic {
+    order: 0;
+   }
+  
+  .profile-pic > div {
+    margin: 0 auto;  
+  }
+}
