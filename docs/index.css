@@ -70,14 +70,14 @@ background: linear-gradient(to right, var(--test, green), #7F00FF);
 .bio .line {
   display: block;
   height: 2px;
-  width: 0px;
+  width: 265px;
   background-color: white;
-  margin-top: 1em;
+  margin-top: -50px;
   transition: width 2s;
 }
 
 .bio p {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s 1s;
 }
 
