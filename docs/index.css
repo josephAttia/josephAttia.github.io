@@ -33,9 +33,6 @@ body {
   right: 0;
   z-index: 0;
   opacity: .7;
-  background: #7F00FF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, var(--test, green), #7F00FF); 
 }
 
 .info {
